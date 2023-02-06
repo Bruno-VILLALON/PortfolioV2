@@ -49,9 +49,17 @@ document.getElementById('form')
    emailjs.sendForm(serviceID, templateID, this)
     .then(() => {
       btn.value = 'Send Email';
-      alert('Message envoyé !');
-    }, (err) => {
+      alert('Message envoyé !'); // confirmation de l'envoi du message
+      document.getElementById('form').reset(); // réinitialisation du formulaire
+      window.location.href = '#header';
+    }, (err) => { // gestion des erreurs
       btn.value = 'Send Email';
       alert(JSON.stringify(err));
     });
 });
+
+
+// Date
+
+const year = new Date().getFullYear();
+document.getElementById('date').textContent = year;
